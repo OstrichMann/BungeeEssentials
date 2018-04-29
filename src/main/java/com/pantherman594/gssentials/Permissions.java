@@ -77,6 +77,7 @@ public class Permissions {
         public static final String LIST_RESTRICTED = LIST + ".restricted";
         public static final String SLAP = PREFIX + "slap";
         public static final String JOIN = PREFIX + "join";
+        public static final String HUB = PREFIX + "hub";
         public static final String CHAT = PREFIX + "chat";
         public static final String IGNORE = PREFIX + "ignore";
         public static final String ANNOUNCE = PREFIX + "announce";

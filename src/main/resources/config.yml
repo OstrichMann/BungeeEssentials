@@ -27,6 +27,7 @@ enable:
 #- betaupdates
 - fulllog
 - log
+- hub
 - rules
 - rules-chat
 - spam
@@ -89,6 +90,9 @@ commands:
   reply:
   - reply
   - r
+  hub:
+  - hub
+  - lobby
   slap:
   - slap
   - uslap

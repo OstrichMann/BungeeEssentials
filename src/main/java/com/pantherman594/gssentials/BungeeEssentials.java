@@ -232,7 +232,7 @@ public class BungeeEssentials extends Plugin {
         List<String> BASE;
         String[] TEMP_ALIAS;
         List<String> enable = config.getStringList("enable");
-        for (String comm : Arrays.asList("alert", "commandspy", "hide", "lookup", "mute", "sendall", "send", "spy", "staffchat", "chat", "find", "friend", "ignore", "join", "list", "reply", "message", "msggroup", "slap", "reload")) {
+        for (String comm : Arrays.asList("alert", "commandspy", "hide", "lookup", "mute", "sendall", "send", "spy", "staffchat", "chat", "find", "friend", "ignore", "join", "list", "reply", "message", "msggroup", "slap", "reload", "hub")) {
             if (enable.contains(comm) || comm.equals("reply") || comm.equals("reload")) {
                 BASE = config.getStringList("commands." + comm);
                 if (BASE.isEmpty()) {
@@ -328,24 +328,25 @@ public class BungeeEssentials extends Plugin {
      */
     private void register(String comm) {
         Map<String, String> commands = new HashMap<>();
-        commands.put("alert", "com.pantherman594.gssentials.command.admin.AlertCommand");
-        commands.put("chat", "com.pantherman594.gssentials.command.general.ChatCommand");
+        commands.put("alert",      "com.pantherman594.gssentials.command.admin.AlertCommand");
+        commands.put("chat",       "com.pantherman594.gssentials.command.general.ChatCommand");
         commands.put("commandspy", "com.pantherman594.gssentials.command.admin.CSpyCommand");
-        commands.put("find", "com.pantherman594.gssentials.command.general.FindCommand");
-        commands.put("friend", "com.pantherman594.gssentials.command.general.FriendCommand");
-        commands.put("hide", "com.pantherman594.gssentials.command.admin.HideCommand");
-        commands.put("ignore", "com.pantherman594.gssentials.command.general.IgnoreCommand");
-        commands.put("join", "com.pantherman594.gssentials.command.general.JoinCommand");
-        commands.put("list", "com.pantherman594.gssentials.command.general.ServerListCommand");
-        commands.put("lookup", "com.pantherman594.gssentials.command.admin.LookupCommand");
-        commands.put("message", "com.pantherman594.gssentials.command.general.MessageCommand");
-        commands.put("msggroup", "com.pantherman594.gssentials.command.general.MsgGroupCommand");
-        commands.put("mute", "com.pantherman594.gssentials.command.admin.MuteCommand");
-        commands.put("reload", "com.pantherman594.gssentials.command.admin.ReloadCommand");
-        commands.put("send", "com.pantherman594.gssentials.command.admin.SendCommand");
-        commands.put("slap", "com.pantherman594.gssentials.command.general.SlapCommand");
-        commands.put("spy", "com.pantherman594.gssentials.command.admin.SpyCommand");
-        commands.put("staffchat", "com.pantherman594.gssentials.command.admin.StaffChatCommand");
+        commands.put("find",       "com.pantherman594.gssentials.command.general.FindCommand");
+        commands.put("friend",     "com.pantherman594.gssentials.command.general.FriendCommand");
+        commands.put("hide",       "com.pantherman594.gssentials.command.admin.HideCommand");
+        commands.put("ignore",     "com.pantherman594.gssentials.command.general.IgnoreCommand");
+        commands.put("join",       "com.pantherman594.gssentials.command.general.JoinCommand");
+        commands.put("list",       "com.pantherman594.gssentials.command.general.ServerListCommand");
+        commands.put("lookup",     "com.pantherman594.gssentials.command.admin.LookupCommand");
+        commands.put("message",    "com.pantherman594.gssentials.command.general.MessageCommand");
+        commands.put("msggroup",   "com.pantherman594.gssentials.command.general.MsgGroupCommand");
+        commands.put("mute",       "com.pantherman594.gssentials.command.admin.MuteCommand");
+        commands.put("reload",     "com.pantherman594.gssentials.command.admin.ReloadCommand");
+        commands.put("send",       "com.pantherman594.gssentials.command.admin.SendCommand");
+        commands.put("slap",       "com.pantherman594.gssentials.command.general.SlapCommand");
+        commands.put("spy",        "com.pantherman594.gssentials.command.admin.SpyCommand");
+        commands.put("staffchat",  "com.pantherman594.gssentials.command.admin.StaffChatCommand");
+        commands.put("hub",        "com.pantherman594.gssentials.command.general.HubCommand");
         if (commands.containsKey(comm)) {
             try {
                 Class cClass = Class.forName(commands.get(comm));
